@@ -1,0 +1,8 @@
+div#red:target{
+    background-color: rgb(41, 27, 27); color: rgb(194, 43, 43);
+    h1,
+    h2,
+    h6 {
+      color: #ff961d;
+      padding: calc(#{$pad}*2);
+    }}
