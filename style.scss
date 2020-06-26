@@ -1,97 +1,96 @@
 @mixin box-shadow{    
-    -webkit-box-shadow: --d;
-    -moz-box-shadow: --d;
-    box-shadow: --d;}
+  -webkit-box-shadow: var(--d);
+  -moz-box-shadow: var(--d);
+  box-shadow: var(--d)}
 
 $pad: 16px;
 %msg {    
-    border:1px solid #ccc;
-    padding:$pad;
-    background-color:#000;}
+  border:1px solid #ccc;
+  padding:$pad;
+  background-color:#000}
 
 body {
-    --a:#fff2 2px;
-    --b:transparent 40px;
-    --c:transparent 30px;
-    --d:10px 10px 19px -4px #fffb;
-    font:"Space Mono", monospace;
-    margin:16px;
-    background-image:
-      radial-gradient(#fff,#fff3 2px,--b),
-      radial-gradient(#fff,#fff2 1px,--c),
-      radial-gradient(#fff,--a, --b),
-      radial-gradient(#fff6,--a,--c);
-    background-size:550px,350px,250px,150px;
-    background-position:0 0,40px 60px,130px 270px,70px 100px;
-    background-attachment:fixed;
-  }
+  --a:#fff2 2px;
+  --d:10px 10px 19px -4px #fffb;
+  font:100% "Space Mono";
+  background-image:
+    radial-gradient(#fff,#fff3 2px,transparent 40px),
+    radial-gradient(#fff,#fff2 1px,transparent 30px),
+    radial-gradient(#fff,#fff2 2px, transparent 40px),
+    radial-gradient(#fff6,#fff2 2px,transparent 30px);
+    background-size:550px 550px,350px 350px,250px 250px,150px 150px;
+    background-position:0,40px 60px,130px 270px,70px 100px;
+    background-attachment: fixed;
+}
 article {
 display:flex;
 flex-wrap:wrap;
-overflow:auto;  
-  
-  section {
-    flex-basis:45%;
-    border:1px #ccc solid;
-    @include box-shadow();
-    padding:$pad;
-    clear:both;
-    box-sizing:border-box;
-  }
-  
-  section#selling-points {
-    flex-grow:2;
-  }
-  
-  pre {
-    background:#000;
-    border:1px solid #ddd;
-    color:#666;
-    font-size:15px;
-    line-height:1.6;
-    margin-bottom:1.6em;
-    max-width:100%;
-    padding:$pad;
-    display:block;
-    white-space:pre-wrap;
-  }
-  
-  pre.before {
-    float:left;
-    width:40%;
-  }
-  
-  pre.after {
-    float:right;
-    width:40%;
-  }
+overflow:auto;
+
+section {
+  flex-grow: 1;
+  flex-basis:45%;
+  border:1px #ccc solid;
+  @include box-shadow();
+  padding:$pad;
+  clear:both;
+  box-sizing:border-box;
+  margin:16px;
 }
-  
-  h1,h2,h6 {
-    color:#79f; 
-    padding:calc(#{$pad}*2);
-  }
-  
-  h1,h6 {
-    text-align:center;
-  }
-  
-  h6 {
-    font-size:2em;
-    padding:calc(#{$pad}*2);
-    margin-bottom:0px;
-  }
-  
-  .message{@extend %msg;}
-  
-  .success {
-    background-color:#080;
-  }
-  
-  .error {
-    background-color:red;
-  }
-  
-  .warning {
-    background-color:#fa0;
-  }
+
+section#selling-points {
+  flex-grow:2;
+  flex-basis: 100%
+}
+
+pre {
+  background:#000;
+  border:1px solid #ddd;
+  color:#666;
+  font-size:15px;
+  line-height:1.6;
+  margin-bottom:1.6em;
+  max-width:100%;
+  padding:$pad;
+  display:block;
+  white-space:pre-wrap;
+  width:40%;
+}
+
+pre.before {
+  float:left;
+}
+
+pre.after {
+  float:right;
+}
+}
+
+h1,h2,h6 {
+  color:#79f; 
+  padding:calc(#{$pad}*2);
+}
+
+h1,h6 {
+  text-align:center;
+}
+
+h6 {
+  font-size:2em;
+  padding:calc(#{$pad}*2);
+  margin-bottom:0px;
+}
+
+.message{@extend %msg;}
+
+.success {
+  background:#080;
+}
+
+.error {
+  background:red;
+}
+
+.warning {
+  background:#fa0;
+}
